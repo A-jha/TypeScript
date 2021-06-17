@@ -1,0 +1,127 @@
+============Number,String,Boolean===============
+//here If we have no type then if user enter some faulty value 
+// then it will return unexpected result
+
+//to avoid error typescript type is used
+function add (n1:number,n2:number,isTrue:boolean,phrase:string){
+    if(!isTrue){
+        return phrase+ (n1+n2);
+    }else{
+        console.log('Sorry you entered string');
+    }
+    
+}
+
+const num2 = .8;
+//const num1 = 5 -> this will result 7.8
+//const num1 = '5'; -> this will result 52.8 in normal js
+//const num1 = "5"; -> Argument of type '"5"' is not assignable to parameter of type 'number'.
+const num1 = 5;
+const isString = false;
+const text = "Sum = ";
+const result = add(num1,num2,isString,text);
+
+console.log(result);
+
+===============Objects=================
+-----Simple Way---------
+const person = {
+    name:"Avinash",
+    age : 21
+};
+console.log(person.name)
+
+
+------Hard Way------------
+const person: {
+  name: string;
+  age: number;
+} = {
+  name: "Avinash",
+  age: 21,
+};
+
+console.log(person.name);
+
+-------Hardest way to make an object---------
+const person: object = {
+  name: "Avinash",
+  age: 21,
+};
+console.log(person.name);
+
+===================Array====================
+const person = {
+  name: "Avi",
+  age: 20,
+  hoobies: ["cricket", "chess", "learning"],
+  subject: ["scince", 9],
+};
+
+//declare an array with type
+let books: string[]; //a book array of type string
+
+//declare an array
+let someValue = [];
+someValue = [1, "la"];
+
+//declare a varible with type any
+let anyArray: any[];
+anyArray = ["sadjcbv", ".67", 23];
+
+==============Tuple=================
+-----------Array opearation-------
+const person = {
+  name: "Avi",
+  age: 21,
+  hobby: ["cricket", "games"],
+  role: [2, "author"],
+};
+
+person.role[1] = 3;
+person.role.push("sam");
+console.log(person.role);
+
+--------Declaration  of Tuple-------
+const person: {
+  name: string;
+  age: number;
+  hobby: string[]; //array of string
+  allArr;
+  pairs: [number, string]; //this a tuple
+} = {
+  name: "Avinash",
+  age: 21,
+  hobby: ["cricker", "Games"],
+  allArr: [1, 2, "lol"],
+  pairs: [1, "Arpita"],
+};
+
+person.hobby.forEach((element) => {
+  console.log(element);
+});
+
+person.allArr.forEach((element) => {
+  console.log(element);
+});
+
+person.pairs.forEach((pair) => {
+  console.log(pair);
+});
+
+=================Enum================
+enum Role {
+  ADMIN,
+  READ_ONLY,
+  AUTHOR,
+}
+const person = {
+  name: "Avinash",
+  id: 2,
+  hobby: ["lol1", "lol2"],
+  role_name: Role[1],
+  role_num: Role.ADMIN,
+};
+console.log(person.role_name, person.role_num);
+
+-----------Dclare enum with custom index--------
