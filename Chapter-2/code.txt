@@ -125,3 +125,51 @@ const person = {
 console.log(person.role_name, person.role_num);
 
 -----------Dclare enum with custom index--------
+enum Role {
+  ADMIN = 5,
+  REGISTRED_USER = 100,
+  UNREGISTERED_USER = 0,
+}
+
+console.log("status:", Role.REGISTRED_USER);
+
+=================Union========================
+function combine(input1: number | string, input2: number | string) {
+  if (typeof input1 === "number" && typeof input2 === "number") {
+    const result = input1 + input2;
+    return result;
+  } else {
+    const result = input1.toString().concat(input2.toString());
+    return result;
+  }
+}
+
+const combinedNum = combine(30, 24);
+const combinedNames = combine("Avinash ", " Jha");
+console.log(`combined number is ${combinedNum}`); //combined number is 54
+console.log(`combined names is ${combinedNames}`); //combined names is Avinash  Jha
+
+=================Literals====================
+function combine(
+  input1: number | string,
+  input2: number | string,
+  literal: "as_num" | "as_text" // here we are allowing only these two strings
+) {
+  if (
+    (typeof input1 === "number" && typeof input2 === "number") ||
+    literal === "as_num"
+  ) {
+    const result = +input1 + +input2;
+    return result;
+  } else {
+    const result = input1.toString() + input2.toString();
+    return result;
+  }
+}
+
+//call using as number literal
+const combined_as_num = combine(5, "6", "as_num");
+console.log(combined_as_num);
+
+const string_to_num = combine("A", "B", "as_num");
+console.log(string_to_num); //results nan

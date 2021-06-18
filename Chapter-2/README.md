@@ -103,7 +103,45 @@
     ```
 
 - ### Any
+
   - Any fuction are not uch used in typescript but we can use any function as fallback if we dont know waht type of data we are dealing with.
+
+- ### Union
+
+  - It is an special type which allows us to create a varible with multiple types.
+  - `|` - this is called pipes and union basically pipes two type to one variable.
+
+    ```ts
+    inputA: number | string;
+    ```
+
+- ### Literals
+
+  - Literals are some value impact the overall functionality if we add logic.
+  - Let's say we have a function to combine two string/ num and we want as_num or as_string result.
+  - Here as_num and as_string is literals.
+
+    ```ts
+    type literals = 'as_num' | 'as_text'
+    function combine(
+      input1:number | string,
+      input2: number | string,
+      //literal: string//another prams
+      //literal:'as_num' | 'as_text'
+      literals:literals
+    )
+    {
+      code...
+    }
+    ```
+
+- **alias to cobine two type to use in union type :**
+  ```ts
+  type cobined = number | string;
+  const input1: number | string;
+  //or we can write
+  const input1: combined;
+  ```
 
 ## Some Important point
 
