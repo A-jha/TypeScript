@@ -1,23 +1,28 @@
-function combine(
-  input1: number | string,
-  input2: number | string,
-  literal: "as_num" | "as_text" // here we are allowing only these two strings
-) {
-  if (
-    (typeof input1 === "number" && typeof input2 === "number") ||
-    literal === "as_num"
-  ) {
-    const result = +input1 + +input2;
-    return result;
-  } else {
-    const result = input1.toString() + input2.toString();
-    return result;
-  }
-}
+//Example of types
 
-//call using as number literal
-const combined_as_num = combine(5, "6", "as_num");
-console.log(combined_as_num);
+//const typoe must be inititialized
+const studentId: number = 5; //number
 
-const string_to_num = combine("A", "B", "as_num");
-console.log(string_to_num); //results nan
+const studentName: string = "Avinash"; //string
+
+const isStudent: boolean = false; //boolean
+
+//array
+const hobbies: string[] = ["chess", "cricket", "Machine", "electic"];
+//name
+const stream_name: string = "Information Technology";
+
+//date
+const dateOfJoin = new Date().getDate().toString();
+
+//tuple
+const id: [number, string] = [1, "Avi"];
+//Object
+const stream = {
+  name: stream_name,
+  id: id,
+  dateOfJoin: dateOfJoin,
+  hobbies: hobbies,
+};
+
+console.log(stream);
